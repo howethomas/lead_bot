@@ -1,0 +1,67 @@
+{
+  marketing {
+    description: "..." 
+    icon: "..."
+    name: 'Agent Bot'
+  }
+
+  script_params: 
+   [
+    {
+      label: "Not At Desk Message",
+      script_key: "NOT_AT_DESK_MSG",
+      help_text: "Message to send when you are not at your desk"
+      data_type: 'text',
+      value: "I'm not at my desk. Sorry.",
+      user_editable: true
+    },
+    
+    {
+      label: "Find Me Message"
+      script_key: "FINDME_MESSAGE"
+      help_text: "Message that tells customer you'll be right with them"
+      data_type: 'text',
+      value: "Please wait a moment.",
+      user_editable: true
+    },
+    {
+      label: "Away Message",
+      script_key: "AWAY_MSG",
+      help_text: "Message when in 'Away' mode ",
+      data_type: 'text',
+      value: "I'm not here right now.",
+      user_editable: true
+    },
+    {
+      label: "Welcome Message",
+      script_key: "WELCOME_MESSAGE",
+      help_text: "Welcome message for new conversations",
+      data_type: 'text',
+      user_editable: false
+    },
+    {
+      label: "Collect Name",
+      script_key: "COLLECT_NAME",
+      help_text: "Enables name collection",
+      data_type: 'boolean',
+      value: true,
+      user_editable: false
+    },
+    {
+      label: "Collect Alternate Contact",
+      script_key: "COLLECT_ALTERNATE_CONTACT",
+      help_text: "Enables alternate contact collection",
+      data_type: 'boolean',
+      value: true,
+      user_editable: false
+    },
+    {
+      label: "Collect Reason",
+      script_key: "COLLECT_REASON",
+      help_text: "Enables reason collection",
+      data_type: 'boolean',
+      value: true,
+      user_editable: false
+    }
+  ]
+}
