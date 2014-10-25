@@ -1,10 +1,4 @@
 {
-  marketing {
-    description: "..." 
-    icon: "..."
-    name: 'Agent Bot'
-  }
-
   script_params: 
    [
     {

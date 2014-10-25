@@ -1,0 +1,38 @@
+{
+  "name": "",
+  "version": "",
+  "title": "",
+  "author": {
+    "name": "",
+    "url": ""
+  },
+  "licenses": [
+    {
+      "type": "",
+      "url": ""
+    }
+  ],
+  "dependencies": {
+    "highcharts": ""
+  },
+  "description": "",
+  "keywords": [
+    "",
+    ""
+  ],
+  "homepage": "", 
+  "docs": "", 
+  "bugs": "",
+  "download": "",
+  "demo": [
+    "",
+    ""
+  ],
+  "maintainers": [
+    {
+      "name": "",
+      "email": "",
+      "url": ""
+    }
+  ] 
+}
