@@ -1,6 +1,14 @@
 {
   "script_params": 
     {
+      "GREETING_MSG":{
+        "label": "Greeting",
+        "script_key": "GREETING_MSG",
+        "help_text": "Message to send when conversation starts",
+        "data_type": "text",
+        "value": "Thank you for contacting AAA!",
+        "user_editable": false
+      },
       "NOT_AT_DESK_MSG":{
         "label": "Not At Desk Message",
         "script_key": "NOT_AT_DESK_MSG",
@@ -10,7 +18,7 @@
         "user_editable": true
       },
 
-      "FINDME_MESSAGE":{
+      "FINDME_MSG":{
         "label": "Find Me Message",
         "script_key": "FINDME_MESSAGE",
         "help_text": "Message that tells customer you'll be right with them",
@@ -26,11 +34,19 @@
         "value": "I'm not here right now.",
         "user_editable": true
       },
-      "WELCOME_MESSAGE":{
+      "WELCOME_MSG":{
         "label": "Welcome Message",
         "script_key": "WELCOME_MESSAGE",
         "help_text": "Welcome message for new conversations",
         "data_type": "text",
+        "user_editable": false
+      },
+      "SIGNATURE_MSG":{
+        "label": "Signature",
+        "script_key": "SIGNATURE_MSG",
+        "help_text": "Message to send when conversation ends",
+        "data_type": "text",
+        "value": "",
         "user_editable": false
       },
       "COLLECT_NAME":{
