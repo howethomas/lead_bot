@@ -27,7 +27,7 @@ conversation do
   AWAY_MSG = @settings['AWAY_MSG'] || ""
   NOT_AT_DESK_MSG = @settings['NOT_AT_DESK'] || "I'm not at my desk. Sorry."
   SIGNATURE_MSG = @settings['SIGNATURE'] || ""
-  FINDME_MSG = @settings['FINDME_MESSAGE'] || "Please wait a moment."
+  FINDME_MSG = @settings['FINDME_MSG'] || "Please wait a moment."
 
   NAME_STATUS = @settings['NAME_STATUS'] || "true"
   ALT_CONTACT_STATUS = @settings['ALT_CONTACT_STATUS'] || "true"

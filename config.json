@@ -20,7 +20,7 @@
 
       "FINDME_MSG":{
         "label": "Find Me Message",
-        "script_key": "FINDME_MESSAGE",
+        "script_key": "FINDME_MSG",
         "help_text": "Message that tells customer you'll be right with them",
         "data_type": "text",
         "value": "Please wait a moment.",
