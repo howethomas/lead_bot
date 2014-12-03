@@ -36,7 +36,7 @@
       },
       "WELCOME_MSG":{
         "label": "Welcome Message",
-        "script_key": "WELCOME_MESSAGE",
+        "script_key": "WELCOME_MSG",
         "help_text": "Welcome message for new conversations",
         "data_type": "text",
         "user_editable": false
