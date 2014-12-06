@@ -21,38 +21,37 @@ conversation do
   record :dest, @dest
   record :contact_time, Time.now
 
-  AWAY = @settings['AWAY']
-
-  GREETING_MSG = @settings['GREETING'] || ""
+  WELCOME_MSG = @settings['WELCOME_MSG'] || ""
   AWAY_MSG = @settings['AWAY_MSG'] || ""
-  NOT_AT_DESK_MSG = @settings['NOT_AT_DESK'] || "I'm not at my desk. Sorry."
+  NOT_AT_DESK_MSG = @settings['NOT_AT_DESK'] || ""
   SIGNATURE_MSG = @settings['SIGNATURE'] || ""
-  FINDME_MSG = @settings['FINDME_MSG'] || "Please wait a moment."
+  FINDME_MSG = @settings['FINDME_MESSAGE'] || ""
 
-  NAME_STATUS = @settings['NAME_STATUS'] || "true"
-  ALT_CONTACT_STATUS = @settings['ALT_CONTACT_STATUS'] || "true"
-  REASON_FOR_CALL_STATUS = @settings['REASON_FOR_CALL_STATUS'] || "true"
+  AWAY = @settings['AWAY'] == "true"
+  COLLECT_NAME = @settings['COLLECT_NAME'] != "false"
+  COLLECT_ALTERNATE_CONTACT = @settings['COLLECT_ALTERNATE_CONTACT'] != "false"
+  COLLECT_REASON = @settings['COLLECT_REASON'] != "false"
 
   if AWAY
     say AWAY_MSG
-    ask :wants_to_take_note, "Would you like to leave a message? (y/n)", :as => :boolean
+    ask :wants_to_take_note, "Would you like to leave a message?(y/n)", :as => :boolean
     if wants_to_take_note then
       record :note, take_note("Please leave your message. Use a single period to end note taking.")
     end
     say SIGNATURE_MSG unless SIGNATURE_MSG.empty?
   else
-    say GREETING_MSG
+    say WELCOME_MSG
 
-    ask :name, "May we please have your name?", :as => :text if NAME_STATUS == "true"
+    ask :name, "May we please have your name?", :as => :text if COLLECT_NAME
 
-    if ALT_CONTACT_STATUS == "true"
-      ask :alt_contact_better, "Is there a better number to reach you at? (y/n)", :as => :boolean
+    if COLLECT_ALTERNATE_CONTACT
+      ask :alt_contact_better, "Is there a better number to reach you at?(y/n)", :as => :boolean
       if alt_contact_better then
         ask :alt_contact, "What number would be better to contact you on?", :as => :text
       end
     end
 
-    if REASON_FOR_CALL_STATUS == "true"
+    if COLLECT_REASON
       record :reason_for_contact, take_note("How can we help you? Use a single period to end note taking.")
     end
 
@@ -71,13 +70,13 @@ conversation do
           script_response = human!("")
         end until script_response != "script_timed_out"
       else
-        ask :wants_to_take_note, "Would you like to leave a message? (y/n)", :as => :boolean
+        ask :wants_to_take_note, "Would you like to leave a message?(y/n)", :as => :boolean
         if wants_to_take_note then
           record :note, take_note("Please leave your message. Use a single period to end note taking.")
         end
       end
     end
-    say SIGNATURE_MSG if SIGNATURE_MSG.present?
+    say SIGNATURE_MSG unless SIGNATURE_MSG.empty?
   end
 end
 

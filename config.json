@@ -1,14 +1,6 @@
 {
   "script_params": 
     {
-      "GREETING_MSG":{
-        "label": "Greeting",
-        "script_key": "GREETING_MSG",
-        "help_text": "Message to send when conversation starts",
-        "data_type": "text",
-        "value": "Thank you for contacting AAA!",
-        "user_editable": false
-      },
       "NOT_AT_DESK_MSG":{
         "label": "Not At Desk Message",
         "script_key": "NOT_AT_DESK_MSG",
@@ -37,8 +29,9 @@
       "WELCOME_MSG":{
         "label": "Welcome Message",
         "script_key": "WELCOME_MSG",
-        "help_text": "Welcome message for new conversations",
+        "help_text": "Message to send when conversation starts",
         "data_type": "text",
+        "value": "Thank you for contacting AAA!",
         "user_editable": false
       },
       "SIGNATURE_MSG":{
