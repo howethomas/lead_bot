@@ -42,6 +42,31 @@
         "value": "",
         "user_editable": false
       },
+
+      "NOTE_COLLECTION_MSG":{
+        "label": "Note Collection Message",
+        "script_key": "NOTE_COLLECTION_MSG",
+        "help_text": "Message to send when we ask if they want to leave a note",
+        "data_type": "text",
+        "value": "Would you like to leave a note?",
+        "user_editable": false
+      },
+      "NOTE_HELP_MSG":{
+        "label": "Note Help",
+        "script_key": "NOTE_HELP_MSG",
+        "help_text": "Message to send to provide help while note taking",
+        "data_type": "text",
+        "value": "Send a message with a single period to end note taking.",
+        "user_editable": false
+      },
+      "NOTE_TERMINATION_CHAR":{
+        "label": "Note Termination Character",
+        "script_key": "NOTE_TERMINATION_CHAR",
+        "help_text": "Character to send to end note taking",
+        "data_type": "text",
+        "value": ".",
+        "user_editable": false
+      },
       "COLLECT_NAME":{
         "label": "Collect Name",
         "script_key": "COLLECT_NAME",
@@ -62,6 +87,14 @@
         "label": "Collect Reason",
         "script_key": "COLLECT_REASON",
         "help_text": "Enables reason collection",
+        "data_type": "boolean",
+        "value": true,
+        "user_editable": false
+      }
+       "COLLECT_NOTE":{
+        "label": "Collect Note",
+        "script_key": "COLLECT_NOTE",
+        "help_text": "Enables note collection",
         "data_type": "boolean",
         "value": true,
         "user_editable": false
