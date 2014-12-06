@@ -90,7 +90,7 @@
         "data_type": "boolean",
         "value": true,
         "user_editable": false
-      }
+      },
        "COLLECT_NOTE":{
         "label": "Collect Note",
         "script_key": "COLLECT_NOTE",
