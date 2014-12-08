@@ -47,7 +47,7 @@ conversation do
     say AWAY_MSG
     ask_and_take_note(:note, NOTE_COLLECTION_MSG, NOTE_HELP_MSG, NOTE_TERMINATION_CHAR) if COLLECT_NOTE
     say SIGNATURE_MSG unless SIGNATURE_MSG.empty?
-    return
+    next 
   end
 
   say WELCOME_MSG
