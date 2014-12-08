@@ -52,7 +52,7 @@ conversation do
 
   say WELCOME_MSG
 
-  ask :name, "May we please have your name?", :as => :text if COLLECT_NAME
+  ask :name, "May we please have your first and last name?", :as => :text if COLLECT_NAME
 
   if COLLECT_ALTERNATE_CONTACT
     ask :alt_contact_better, "Is there a better number to reach you at?(y/n)", :as => :boolean
