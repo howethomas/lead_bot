@@ -32,9 +32,9 @@ conversation do
   WELCOME_MSG = @settings['WELCOME_MSG'] || ""
   SECOND_MSG = @settings['SECOND_MSG'] || ""
   EMAIL_TITLE = @settings['EMAIL_TITLE'] || "Your information"
-  EMAIL_BODY = @settings['EMAIL_BODY'] || PROMPT_ONE + PROMPT_TWO
+  EMAIL_BODY = @settings['EMAIL_BODY'] || WELCOME_MSG + SECOND_MSG
   unless @settings['INTEREST_LIST'].nil?
-    INTEREST_LIST = @settings['INTEREST_LIST'].split(",")
+    INTEREST_LIST = @settings['INTEREST_LIST'].split
   else
     INTEREST_LIST = ['sales', 'press', 'support', 'other']
   end
@@ -76,7 +76,6 @@ conversation do
   if OFFER_LIVE
     ask :wants_to_chat, LIVE_OFFER_MSG, :as => :boolean
     if wants_to_chat
-
       # Here is where  you might ask for name, reason and alt contact
       script_response = human!(FINDME_MSG)
       timed_out = script_response == "script_timed_out"
@@ -93,6 +92,7 @@ conversation do
           end until script_response != "script_timed_out"
         end
       end
+    end
   end
 
   say SIGNATURE_MSG unless SIGNATURE_MSG.empty?

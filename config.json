@@ -36,9 +36,9 @@
       "INTEREST_LIST":{
         "label": "List of Interests",
         "script_key": "INTEREST_LIST",
-        "help_text": "Comma separated list of interest choices (sales, support, other)",
+        "help_text": "Space separated list of interest choices (sales support other)",
         "data_type": "text",
-        "value": "sales, support, other",
+        "value": "sales support other",
         "user_editable": true
       },
       "INTEREST_MSG":{
