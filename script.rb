@@ -28,60 +28,71 @@ conversation do
   record :dest, @dest
   record :contact_time, Time.now
 
+
   WELCOME_MSG = @settings['WELCOME_MSG'] || ""
-  AWAY_MSG = @settings['AWAY_MSG'] || ""
-  NOT_AT_DESK_MSG = @settings['NOT_AT_DESK_MSG'] || ""
+  SECOND_MSG = @settings['SECOND_MSG'] || ""
+  EMAIL_TITLE = @settings['EMAIL_TITLE'] || "Your information"
+  EMAIL_BODY = @settings['EMAIL_BODY'] || PROMPT_ONE + PROMPT_TWO
+  unless @settings['INTEREST_LIST'].nil?
+    INTEREST_LIST = @settings['INTEREST_LIST'].split(",")
+  else
+    INTEREST_LIST = ['sales', 'press', 'support', 'other']
+  end
+  INTEREST_MSG = @settings['INTEREST_PROMPT'] || "What is your interest?"
+  LIVE_OFFER_MSG = @settings['LIVE_OFFER_MSG'] || ""
   SIGNATURE_MSG = @settings['SIGNATURE_MSG'] || ""
   FINDME_MSG = @settings['FINDME_MSG'] || ""
   NOTE_COLLECTION_MSG = @settings['NOTE_COLLECTION_MSG'] || "Would you like to leave a note?"
   NOTE_HELP_MSG = @settings['NOTE_HELP_MSG'] || "Send a message with a single period to end note taking."
   NOTE_TERMINATION_CHAR = @settings['NOTE_TERMINATION_CHAR'] || "."
+  NOT_AT_DESK_MSG = @settings['NOT_AT_DESK_MSG'] || ""
 
   AWAY = @settings['AWAY'] == "true"
-  COLLECT_NAME = @settings['COLLECT_NAME'] != "false"
-  COLLECT_ALTERNATE_CONTACT = @settings['COLLECT_ALTERNATE_CONTACT'] != "false"
-  COLLECT_REASON = @settings['COLLECT_REASON'] != "false"
+  OFFER_LIVE = @settings['OFFER_LIVE'] == "true"
   COLLECT_NOTE = @settings['COLLECT_NOTE'] != "false"
 
-  if AWAY
-    say AWAY_MSG
-    ask_and_take_note(:note, NOTE_COLLECTION_MSG, NOTE_HELP_MSG, NOTE_TERMINATION_CHAR) if COLLECT_NOTE
-    say SIGNATURE_MSG unless SIGNATURE_MSG.empty?
-    next 
-  end
-
   say WELCOME_MSG
+  say SECOND_MSG unless SECOND_MSG.empty?
 
-  ask :name, "May we please have your first and last name?", :as => :text if COLLECT_NAME
-
-  if COLLECT_ALTERNATE_CONTACT
-    ask :alt_contact_better, "Is there a better number to reach you at?(y/n)", :as => :boolean
-    if alt_contact_better then
-      ask :alt_contact, "What number would be better to contact you on?", :as => :text
+  ask :wants_email, "Would it be more convenient for you to receive this in an email? (y/n)", :as => :boolean
+  if wants_email then
+    ask :email_address, "May we please have your email?", :as => :email
+    if email_address then
+      email(email_address, EMAIL_TITLE, EMAIL_BODY)
     end
   end
-
-  if COLLECT_REASON
-    record :reason_for_contact, take_note("How can we help you? #{NOTE_HELP_MSG}", NOTE_TERMINATION_CHAR)
+  ask :contact_me, "Are you interested in having someone contact you? (y/n)", :as => :boolean
+  if contact_me then
+    ask :name, "May we have your name?", :as => :text
+    ask :interest, INTEREST_MSG, :as => :select, :collection => INTEREST_LIST
+    ask_and_take_note(:note, NOTE_COLLECTION_MSG, NOTE_HELP_MSG, NOTE_TERMINATION_CHAR) if COLLECT_NOTE
   end
 
-  # Here is where  you might ask for name, reason and alt contact
-  script_response = human!(FINDME_MSG)
-  timed_out = script_response == "script_timed_out"
+  if AWAY
+    say SIGNATURE_MSG unless SIGNATURE_MSG.empty?
+    next
+  end
 
-  if timed_out then
-    say NOT_AT_DESK_MSG
-    ask :text_back, "Can we text you when we come back? (y/n)", :as => :boolean
-    if text_back then
-      say "Thank you. We will be with you as soon as we can."
-      begin
-        # loop this until the script_response does not time out
-        # scripts can end because they've been requested to, or they are too long hanging around.
-        script_response = human!("")
-      end until script_response != "script_timed_out"
-    else
-      ask_and_take_note(:note, NOTE_COLLECTION_MSG, NOTE_HELP_MSG, NOTE_TERMINATION_CHAR) if COLLECT_NOTE
-    end
+  if OFFER_LIVE
+    ask :wants_to_chat, LIVE_OFFER_MSG, :as => :boolean
+    if wants_to_chat
+
+      # Here is where  you might ask for name, reason and alt contact
+      script_response = human!(FINDME_MSG)
+      timed_out = script_response == "script_timed_out"
+
+      if timed_out then
+        say NOT_AT_DESK_MSG
+        ask :text_back, "Can we text you when we come back? (y/n)", :as => :boolean
+        if text_back then
+          say "Thank you. We will be with you as soon as we can."
+          begin
+            # loop this until the script_response does not time out
+            # scripts can end because they've been requested to, or they are too long hanging around.
+            script_response = human!("")
+          end until script_response != "script_timed_out"
+        end
+      end
   end
 
   say SIGNATURE_MSG unless SIGNATURE_MSG.empty?

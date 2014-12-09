@@ -1,15 +1,70 @@
 {
-  "script_params": 
+  "script_params":
     {
-      "NOT_AT_DESK_MSG":{
-        "label": "Not At Desk Message",
-        "script_key": "NOT_AT_DESK_MSG",
-        "help_text": "Message to send when you are not at your desk",
+      "WELCOME_MSG":{
+        "label": "Welcome Message",
+        "script_key": "WELCOME_MSG",
+        "help_text": "Message to send when conversation starts",
         "data_type": "text",
-        "value": "I'm not at my desk. Sorry.",
+        "value": "Thank you for contacting us!",
         "user_editable": true
       },
-
+      "SECOND_MSG":{
+        "label": "Second Message",
+        "script_key": "SECOND_MSG",
+        "help_text": "Second message to send when conversation starts",
+        "data_type": "text",
+        "value": "You can download our material here: http://bit.ly/1zpxoSK",
+        "user_editable": true
+      },
+      "EMAIL_TITLE":{
+        "label": "E-mail Title",
+        "script_key": "EMAIL_TITLE",
+        "help_text": "The title of the email that will be sent from this account.",
+        "data_type": "text",
+        "value": "Your requested material from GreenBot.",
+        "user_editable": true
+      },
+      "EMAIL_BODY":{
+        "label": "E-mail Body",
+        "script_key": "EMAIL_BODY",
+        "help_text": "The body of the email that will be sent from this account.",
+        "data_type": "text",
+        "value": "You can download our material here: http://bit.ly/1zpxoSK.",
+        "user_editable": true
+      },
+      "INTEREST_LIST":{
+        "label": "List of Interests",
+        "script_key": "INTEREST_LIST",
+        "help_text": "Comma separated list of interest choices (sales, support, other)",
+        "data_type": "text",
+        "value": "sales, support, other",
+        "user_editable": true
+      },
+      "INTEREST_MSG":{
+        "label": "Interest Message",
+        "script_key": "INTEREST_MSG",
+        "help_text": "The prompt that describes the interest list",
+        "data_type": "text",
+        "value": "How can we help you?",
+        "user_editable": true
+      },
+      "LIVE_OFFER_MSG":{
+        "label": "Chat Live Message",
+        "script_key": "LIVE_OFFER_MSG",
+        "help_text": "The prompt that asks if you want to chat with someone live.",
+        "data_type": "text",
+        "value": "Would you like to chat with an agent now? Someone is available.",
+        "user_editable": true
+      },
+      "SIGNATURE_MSG":{
+        "label": "Signature",
+        "script_key": "SIGNATURE_MSG",
+        "help_text": "Message to send when conversation ends",
+        "data_type": "text",
+        "value": "Thank you for texting us! Have a great day.",
+        "user_editable": true
+      },
       "FINDME_MSG":{
         "label": "Find Me Message",
         "script_key": "FINDME_MSG",
@@ -18,38 +73,13 @@
         "value": "Please wait a moment.",
         "user_editable": true
       },
-      "AWAY_MSG":{
-        "label": "Away Message",
-        "script_key": "AWAY_MSG",
-        "help_text": "Message when in 'Away' mode ",
-        "data_type": "text",
-        "value": "I'm not here right now.",
-        "user_editable": true
-      },
-      "WELCOME_MSG":{
-        "label": "Welcome Message",
-        "script_key": "WELCOME_MSG",
-        "help_text": "Message to send when conversation starts",
-        "data_type": "text",
-        "value": "Thank you for contacting AAA!",
-        "user_editable": false
-      },
-      "SIGNATURE_MSG":{
-        "label": "Signature",
-        "script_key": "SIGNATURE_MSG",
-        "help_text": "Message to send when conversation ends",
-        "data_type": "text",
-        "value": "",
-        "user_editable": false
-      },
-
       "NOTE_COLLECTION_MSG":{
         "label": "Note Collection Message",
         "script_key": "NOTE_COLLECTION_MSG",
         "help_text": "Message to send when we ask if they want to leave a note",
         "data_type": "text",
         "value": "Would you like to leave a note?",
-        "user_editable": false
+        "user_editable": true
       },
       "NOTE_HELP_MSG":{
         "label": "Note Help",
@@ -57,7 +87,7 @@
         "help_text": "Message to send to provide help while note taking",
         "data_type": "text",
         "value": "Send a message with a single period to end note taking.",
-        "user_editable": false
+        "user_editable": true
       },
       "NOTE_TERMINATION_CHAR":{
         "label": "Note Termination Character",
@@ -65,31 +95,23 @@
         "help_text": "Character to send to end note taking",
         "data_type": "text",
         "value": ".",
-        "user_editable": false
+        "user_editable": true
       },
-      "COLLECT_NAME":{
-        "label": "Collect Name",
-        "script_key": "COLLECT_NAME",
-        "help_text": "Enables name collection",
+      "NOT_AT_DESK_MSG":{
+        "label": "Not at Desk Message",
+        "script_key": "NOT_AT_DESK_MSG",
+        "help_text": "Note to send when you are not at your desk",
+        "data_type": "text",
+        "value": "I'm sorry, I'm not at my desk right now.",
+        "user_editable": true
+      },
+      "OFFER_LIVE":{
+        "label": "Offer Live Chat",
+        "script_key": "OFFER_LIVE",
+        "help_text": "Enables agent live chat.",
         "data_type": "boolean",
         "value": true,
-        "user_editable": false
-      },
-      "COLLECT_ALTERNATE_CONTACT":{
-        "label": "Collect Alternate Contact",
-        "script_key": "COLLECT_ALTERNATE_CONTACT",
-        "help_text": "Enables alternate contact collection",
-        "data_type": "boolean",
-        "value": true,
-        "user_editable": false
-      },
-      "COLLECT_REASON":{
-        "label": "Collect Reason",
-        "script_key": "COLLECT_REASON",
-        "help_text": "Enables reason collection",
-        "data_type": "boolean",
-        "value": true,
-        "user_editable": false
+        "user_editable": true
       },
        "COLLECT_NOTE":{
         "label": "Collect Note",
